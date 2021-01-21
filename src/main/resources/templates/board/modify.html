@@ -5,17 +5,17 @@
 
     <th:block th:fragment="content">
 
-        <h1 class="mt-4">GuestBook Modify Page</h1>
+        <h1 class="mt-4">Board Modify Page</h1>
 
-        <form action="/guestbook/modify" method="post">
+        <form action="/board/modify" method="post">
             <!-- 페이지 번호, 검색 조건(타입, 키워드)도 같이 form 태그에 추가해서 넘기자 -->
             <input type="hidden" name="page" th:value="${requestDTO.page}">
             <input type="hidden" name="type" th:value="${requestDTO.type}">
             <input type="hidden" name="keyword" th:value="${requestDTO.keyword}">
 
             <div class="form-group">
-                <label>Gno</label>
-                <input type="text" class="form-control" name="gno" th:value="${dto.gno}" readonly>
+                <label>Bno</label>
+                <input type="text" class="form-control" name="bno" th:value="${dto.bno}" readonly>
             </div>
 
             <div class="form-group">
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label>Writer</label>
-                <input type="text" class="form-control" name="writer" th:value="${dto.writer}" readonly>
+                <input type="text" class="form-control" name="writer" th:value="${dto.writerName}" readonly>
             </div>
 
             <div class="form-group">
@@ -61,7 +61,7 @@
     $(".removeBtn").click(()=>{
 
         actionForm
-            .attr("action", "/guestbook/remove")
+            .attr("action", "/board/remove")
             .attr("method", "post");
 
         actionForm.submit();
@@ -73,7 +73,7 @@
         }
 
         actionForm
-            .attr("action", "/guestbook/modify")
+            .attr("action", "/board/modify")
             .attr("method", "post")
             .submit();
     });
@@ -94,7 +94,7 @@
 
 
         actionForm
-            .attr("action", "/guestbook/list")
+            .attr("action", "/board/list")
             .attr("method", "get");
 
         // console.log(actionForm.html());
